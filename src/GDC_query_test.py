@@ -54,4 +54,9 @@ params = {
 # The parameters are passed to 'json' rather than 'params' in this case
 response = requests.post(files_endpt, headers = {"Content-Type": "application/json"}, json = params)
 
-print(response.content.decode("utf-8"))
+#print(response.content.decode("utf-8"))
+#now try to export these into a csv, which are more useful
+
+csv_file = open("results1.csv","wb")
+csv_file.write(response.content)
+csv_file.close()
